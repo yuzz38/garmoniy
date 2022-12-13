@@ -1093,6 +1093,11 @@ font-weight: 600;
     -ms-transform: rotate(45deg);
     transform: rotate(45deg);
   }
+.btn2 {
+    display: none!important;
+    padding: 0!important;
+    background-color: transparent!important;
+}
 @media screen and (max-width: 1450px) {
     .health__item img {
         max-width: 100%;
