@@ -1152,16 +1152,86 @@ font-weight: 600;
 #six .circle{
     transform: rotate(10deg);
 }
-@media screen and (max-width: 1450px) {
+@media screen and (max-width: 1450px) and (min-width: 1050px) {
     .container {
-        margin-left: 24px;
-        margin-right: 24px;
+        margin-left: 164px;
+        margin-right: 164px;
     }
-    .health__item img {
+    .how__wrapper {
+        padding: 60px 146px;
+    }
+    .sessian__block {
+        max-width: 50%;
+    }
+    
+
+    .header__btn a {
+        font-size: 12px;
+        padding: 10px 15px;
+    }
+    .header__links {
+        max-width: 600px;
+    }
+   .health__item img {
         max-width: 100%;
     }
+    .sessia__img img {
+        max-width: 100%;
+    }
+    .sessian__block {
+        max-width: 400px;
+    }
+    .our__item {
+        flex: 0 0 32%;
+    }
+    .we__img img{
+        max-width: 100%;
+    }
+    .we__line img {
+        max-width: 100%;
+    }
+    .our__img img {
+        max-width: 100%;
+    }
+    .header__links ul li a {
+        font-size: 14px;
+    }
+    .header-logo a img {
+        max-width: 180px;
+    }
+    .how__wrapper {
+        padding: 29px 72px;
+    }
+    .present__left-form form button {
+        font-size: 14px;
+        padding: 14px 19px;
+        height: 100%;
+    }
+    .sessian__block {
+        max-width: auto;
+        flex: 0 0 30%;
+    }
+    .health__item {
+        flex: 0 0 48%;
+    }
+    .footer-item2 {
+        max-width: 235px;
+    width: 100%;
+    margin-left: 102px;
+    }
+    .footer-bottom-item2 {
+        max-width: 235px;
+        width: 100%;
+        margin-left: 102px;
+    }
+    .main__hand {
+        bottom: -550px;
+    }
+    .slider {
+        padding-top: 500px;
+    }
 }
-@media screen and (max-width: 1350px) {
+@media screen and (max-width: 1050px) {
     .health__item img {
         max-width: 100%;
     }
@@ -1717,9 +1787,20 @@ font-weight: 600;
     .main__hand {
         bottom: -140%;
     }
+    .centered__diagram {
+        top: 35%;
+    left: 42%;
+    } 
 }
 @media screen and (max-width: 490px) {
     .main__hand {
         bottom: -90%;
     }
+   
+}
+@media screen and (max-width: 430px) {
+    .centered__diagram {
+        top: 31%;
+        left: 39%;
+    } 
 }
