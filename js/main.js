@@ -29,253 +29,33 @@ const swiper = new Swiper('.swiper', {
   
   });
   $(document).ready(function(){
+    $('.header-burger').click(function(e){
+      e.preventDefault();
+  
+      $('.header__links').slideToggle();
+ 
+    })
+    
+  
+
+  })
+  
+  $(document).ready(function(){
     $('.how__btn').click(function(e){
       e.preventDefault();
       $('.how__btn').removeClass('active');
       $(this).addClass('active');
       $('.how__diagram__item').removeClass('active');
+      $('.diag').animate({opacity: 0}, 200);
       $($(this).attr('href')).addClass('active');
+      $($(this).attr('href')).find('.diag').animate({opacity: 1}, 200);
     })
 
   
 
   })
 
-  const dataDoughnut = {
-    
-   
-    datasets: [
-      {
-        borderWidth: 0,
-        hoverBorderWidth: 0,
-        data: [30,90],
-        backgroundColor: [
-          
-          "rgba(88, 166, 119, 1)",
-          "rgba(227, 90, 60, 1)",
-        ],
-        hoverOffset: 0,
-      },
-      
-    ],
-    
-  };
 
-  const configDoughnut = {
-    type: "doughnut",
-    data: dataDoughnut,
-    options: {
-      responsive: true,
-      plugins: {
-        tooltip: {
-          enabled: false // <-- this option disables tooltips
-        }
-      }
-    },
-    events: [],
-  };
-  
-  var chartBar = new Chart(
-    document.getElementById("chartDoughnut"),
-    
-    configDoughnut
-  );
-  const dataDoughnut2 = {
-    
-    
-    datasets: [
-      {
-        borderWidth: 0,
-        hoverBorderWidth: 0,
-        data: [30,80],
-        backgroundColor: [
-          "rgba(227, 90, 60, 1)",
-          "rgba(88, 166, 119, 1)",
-          
-        ],
-        hoverOffset: 0,
-        
-      },
-      
-    ],
-    
-  };
-
-  const configDoughnut2 = {
-    type: "doughnut",
-    data: dataDoughnut2,
-    options: {
-      responsive: true,
-      plugins: {
-        tooltip: {
-          enabled: false // <-- this option disables tooltips
-        }
-      }
-    },
-  };
-
-  var chartBar2 = new Chart(
-    document.getElementById("chartDoughnut2"),
-    configDoughnut2
-  );
-  
-  const dataDoughnut3 = {
-    
- 
-    datasets: [
-      {
-        borderWidth: 0,
-        hoverBorderWidth: 0,
-        data: [30,50],
-        backgroundColor: [
-          "rgba(227, 90, 60, 1)",
-          "rgba(88, 166, 119, 1)",
-          
-        ],
-        hoverOffset: 0,
-      },
-      
-    ],
-    
-  };
-
-  const configDoughnut3 = {
-    type: "doughnut",
-    data: dataDoughnut3,
-    options: {
-      responsive: true,
-      plugins: {
-        tooltip: {
-          enabled: false // <-- this option disables tooltips
-        }
-      }
-    },
-    
-  };
-
-  var chartBar3 = new Chart(
-    document.getElementById("chartDoughnut3"),
-    configDoughnut3
-  );
-
-  const dataDoughnut4 = {
-    
- 
-    datasets: [
-      {
-        borderWidth: 0,
-        hoverBorderWidth: 0,
-        data: [20,90],
-        backgroundColor: [
-          "rgba(88, 166, 119, 1)",
-          "rgba(227, 90, 60, 1)",
-          
-          
-        ],
-        hoverOffset: 0,
-      },
-      
-    ],
-    
-  };
-
-  const configDoughnut4 = {
-    type: "doughnut",
-    data: dataDoughnut4,
-    options: {
-      responsive: true,
-      plugins: {
-        tooltip: {
-          enabled: false // <-- this option disables tooltips
-        }
-      }
-    },
-    
-  };
-
-  var chartBar4 = new Chart(
-    document.getElementById("chartDoughnut4"),
-    configDoughnut4
-  );
-  const dataDoughnut5 = {
-    
- 
-    datasets: [
-      {
-        borderWidth: 0,
-        hoverBorderWidth: 0,
-        data: [40,90],
-        backgroundColor: [
-          "rgba(88, 166, 119, 1)",
-          "rgba(227, 90, 60, 1)",
-          
-          
-        ],
-        hoverOffset: 0,
-      },
-      
-    ],
-    
-  };
-
-  const configDoughnut5 = {
-    type: "doughnut",
-    data: dataDoughnut5,
-    options: {
-      responsive: true,
-      plugins: {
-        tooltip: {
-          enabled: false // <-- this option disables tooltips
-        }
-      }
-    },
-    
-  };
-
-  var chartBar5 = new Chart(
-    document.getElementById("chartDoughnut5"),
-    configDoughnut5
-  );
-
-  const dataDoughnut6 = {
-    
- 
-    datasets: [
-      {
-        borderWidth: 0,
-        hoverBorderWidth: 0,
-        data: [5,90],
-        backgroundColor: [
-          "rgba(88, 166, 119, 1)",
-          "rgba(227, 90, 60, 1)",
-          
-          
-        ],
-        hoverOffset: 0,
-      },
-      
-    ],
-    
-  };
-
-  const configDoughnut6 = {
-    type: "doughnut",
-    data: dataDoughnut6,
-    options: {
-      responsive: true,
-      plugins: {
-        tooltip: {
-          enabled: false // <-- this option disables tooltips
-        }
-      }
-    },
-    
-  };
-
-  var chartBar6 = new Chart(
-    document.getElementById("chartDoughnut6"),
-    configDoughnut6
-  );
   $(document).ready(function() {
     $('.acc-container .acc:nth-child(1) .acc-head').addClass('active');
     $('.acc-container .acc:nth-child(1) .acc-content').slideDown();
@@ -291,4 +71,129 @@ const swiper = new Swiper('.swiper', {
           $(this).toggleClass('active');
         }
     });     
+    });
+    function circleDiagram(settings) {
+      if (settings.selector.length > 0) {
+        let params = {
+          strokeWidth: 8, // толщина круга
+          radius: 20, // радиус круга
+          absolutePercent: false, // не замыкать круг до конца если в общем < 100%
+          minPartSize: 1.5, // минимальный размер секции
+          diagramColors: [
+            "var(--c-orange)",
+            "var(--c-green)"
+            
+          ], // список цветов диаграммы из css
+          diagramColorDefault: "#aaa", // применяется, когда заканчивается список цветов выше
+          fractions: 1 // точность вычислений
+        };
+        $.extend(params, settings);
+    
+        let id = params.selector.attr("id");
+        if (id === undefined) {
+          id = "default_id";
+          params.selector.attr("id", id);
+        }
+        const diagram = params.selector.find(".circle");
+        const percent = params.selector.find(".table td:first-child");
+        const circleLength = Math.floor(params.radius * (Math.PI * 2) * 10) / 10;
+        const valueLength = percent.length;
+        let circleEl = [];
+        for (let i = 0; i < valueLength; i++) {
+          circleEl.push(
+            `<circle class="d-item" cx="50" cy="50" r="${params.radius}"/>`
+          );
+        }
+        circleEl = circleEl.join("");
+        const svgObj = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><style type="text/css">#${id} .d-item{fill:transparent;stroke-linecap:butt;stroke-width:${params.strokeWidth}}#${id} circle{animation:load_${id} 1.5s ease-in-out}@keyframes load_${id}{from{stroke-dashoffset:0}}</style></defs><g x="0" y="0" width="100" height="100">${circleEl}</g></svg>`;
+        diagram.append(svgObj);
+        percent.prepend(
+          `<div style="background:${params.diagramColorDefault}"></div>`
+        );
+        const diagramElement = params.selector.find("svg g circle");
+        const valPercent = [].map.call(percent, function (obj2) {
+          let objVal = obj2.innerText;
+          return parseFloat(objVal);
+        });
+        const objValSum = valPercent.reduce(
+          (previousValue, currentValue) => previousValue + currentValue
+        );
+        let percentFix = objValSum / 100;
+        if (
+          (params.absolutePercent == true && objValSum < 100) ||
+          valueLength === 1
+        ) {
+          percentFix = 1;
+        }
+        let step = 0;
+        let dashoffsetValUpdate =
+          circleLength - ((valPercent[0] / 100) * circleLength) / percentFix;
+    
+        while (valueLength > step) {
+          let circlePercent =
+            Math.floor((valPercent[step] * circleLength) / percentFix) / 100;
+          if (circlePercent < params.minPartSize) {
+            circlePercent = params.minPartSize;
+          }
+          dashoffsetValUpdate = dashoffsetValUpdate + circlePercent;
+          diagramElement
+            .eq(step)
+            .attr(
+              "stroke-dasharray",
+              Math.floor(circlePercent * 10 ** params.fractions) /
+                10 ** params.fractions +
+                "," +
+                Math.floor(
+                  (circleLength - circlePercent) * 10 ** params.fractions
+                ) /
+                  10 ** params.fractions
+            )
+            .attr(
+              "stroke-dashoffset",
+              Math.floor(dashoffsetValUpdate * 10 ** params.fractions) /
+                10 ** params.fractions
+            );
+          if (params.diagramColors.length > step) {
+            diagramElement.eq(step).attr("stroke", params.diagramColors[step]);
+            percent
+              .eq(step)
+              .find("div")
+              .css({ background: params.diagramColors[step] });
+          } else {
+            diagramElement.eq(step).attr("stroke", params.diagramColorDefault);
+          }
+          step++;
+        }
+      }
+    }
+    circleDiagram({
+      selector: $(".circle-diagram#first"), // обязательный параметр
+      strokeWidth: 12.5,
+      radius: 18
+    });
+    circleDiagram({
+      selector: $(".circle-diagram#second"), // обязательный параметр
+      strokeWidth: 12.5,
+      radius: 18
+    });
+  
+    circleDiagram({
+      selector: $(".circle-diagram#third"), // обязательный параметр
+      strokeWidth: 12.5,
+      radius: 18
+    });
+    circleDiagram({
+      selector: $(".circle-diagram#four"), // обязательный параметр
+      strokeWidth: 12.5,
+      radius: 18
+    });
+    circleDiagram({
+      selector: $(".circle-diagram#five"), // обязательный параметр
+      strokeWidth: 12.5,
+      radius: 18
+    });
+    circleDiagram({
+      selector: $(".circle-diagram#six"), // обязательный параметр
+      strokeWidth: 12.5,
+      radius: 18
     });
