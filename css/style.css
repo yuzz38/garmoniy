@@ -1152,7 +1152,15 @@ font-weight: 600;
 #six .circle{
     transform: rotate(10deg);
 }
-
+@media screen and (max-width: 1450px) {
+    .container {
+        margin-left: 24px;
+        margin-right: 24px;
+    }
+    .health__item img {
+        max-width: 100%;
+    }
+}
 @media screen and (max-width: 1350px) {
     .health__item img {
         max-width: 100%;
