@@ -83,7 +83,7 @@ const swiper = new Swiper('.swiper', {
         range.select()
       }
     }
-  
+    AOS.init();
     function mask(e) {
       //console.log('mask',e);
       var matrix = this.placeholder,// .defaultValue
@@ -102,8 +102,6 @@ const swiper = new Swiper('.swiper', {
     window.addEventListener("DOMContentLoaded", function() {
       var input = document.querySelector("#online_phone");
       input.addEventListener("input", mask, false);
-      input.focus();
-      setCursorPosition(3, input);
     });
     function circleDiagram(settings) {
       if (settings.selector.length > 0) {
@@ -229,4 +227,32 @@ const swiper = new Swiper('.swiper', {
       selector: $(".circle-diagram#six"), // обязательный параметр
       strokeWidth: 12.5,
       radius: 18
+    });
+    var block_show = false;
+ 
+    function scrollTracking(){
+      if (block_show) {
+        return false;
+      }
+     
+      var wt = $(window).scrollTop();
+      var wh = $(window).height();
+      var et = $('.how__wrapper').offset().top;
+      var eh = $('.how__wrapper').outerHeight();
+      var dh = $(document).height();   
+     
+      if (wt + wh - 200 >= et || wh + wt == dh || eh + et < wh){
+        block_show = true;
+        
+        // Код анимации
+        $('.firstdig').addClass('active');
+      }
+    }
+     
+    $(window).scroll(function(){
+      scrollTracking();
+    });
+      
+    $(document).ready(function(){ 
+      scrollTracking();
     });
