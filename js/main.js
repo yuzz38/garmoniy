@@ -102,6 +102,10 @@ const swiper = new Swiper('.swiper', {
     window.addEventListener("DOMContentLoaded", function() {
       var input = document.querySelector("#online_phone");
       input.addEventListener("input", mask, false);
+      input.addEventListener("click", function(){
+        setCursorPosition(3, input);
+      })
+      
     });
     function circleDiagram(settings) {
       if (settings.selector.length > 0) {
