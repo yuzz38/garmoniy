@@ -662,7 +662,16 @@ box-sizing: border-box;
     color: #fff;
     top: 0;
     font-size: 20px;
-    right: 0;
+    right: -10px;
+}
+.brand__star {
+    display: none;
+}
+.brand__link {
+  display: none;
+}
+.all__link {
+    display: none;
 }
 .present__wrapper {
     display: flex;
